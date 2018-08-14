@@ -14,4 +14,13 @@
       </ol>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (eventEmitted)="onEventEmitted($event)"></app-game-control>
+      <div *ngFor="let emittedEvent of emittedEvents">
+        <app-odd *ngIf="!emittedEvent.isEven" [num]="emittedEvent.num"></app-odd>
+        <app-even *ngIf="emittedEvent.isEven" [num]="emittedEvent.num"></app-even>
+      </div>
+    </div>
+  </div>
 </div>
